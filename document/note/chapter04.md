@@ -34,6 +34,8 @@ React.createElement()を利用して作成する。
 React要素の実態はオブジェクト。実際にReact要素をコンソールログに出力すると、オブジェクトが表示される。  
 プロパティには以下がある。
 ```ts
+React.createElement("h1", { id: "test" }, "child");
+
 {
   type,   //要素 例) h1
   key,    //Reactが要素の識別に使う
@@ -43,6 +45,14 @@ React要素の実態はオブジェクト。実際にReact要素をコンソー�
   _store, // 内部的な値
 }
 ```
+## ***createElement引数***
+* 第1引数
+HTMLタグ
+* 第2引数
+HTML属性  // React要素が持つpropsオブジェクトに格納される
+* 第3引数
+children(props)  // React要素が持つpropsオブジェクトに格納される
+
 
 ## ***React要素の描画***
 React要素の作成ができたらReactDom.render関数にReact要素を渡す。
@@ -59,14 +69,24 @@ React要素のchlderenに配列を設定する場合は、配列の各要素が�
 ## ***Reactのコンポーネント***
 コンポーネントとはUI部品のこと。Reactではコンポーネント（画面の部品）を組み合わせUIを構築する。
 
-## ***コンポーネントの実態***
-コンポーネントはReact要素を返す純粋関数。
+## ***コンポーネントの実体は関数！？***
+コンポーネントはReact要素(createElementの戻り値)を返す純粋関数。
 ```ts
 const test = () => React.createElement('h1',null,'この文字がh1の子要素として描画されるよ。');
 // 以下のようなHTMLになる
 <h1>この文字がh1の子要素として描画されるよ。</h1>
 ```
 
+## ***コンポーネントの呼び出し***
+```ts
+// 第1引数にはコンポーネントを渡す
+React.createElement(test,null,null);
+```
+
+## ***コンポーネント引数props***
+コンポーネントは引数を受け取ることが出来る。
+引数にはcreateElementで設定したpropsオブジェクが渡る。
+propsオブジェクはcreateElementの第２引数で設定することができる。
 
 
 ## ***コンポーネントの引数であるpropsとReact要素のprops***
@@ -76,6 +96,17 @@ const test = () => React.createElement('h1',null,'この文字がh1の子要素�
 
 React要素のprops：React要素のid属性やReact要素の子要素に関する情報を持ったオブジェクトのこと
 ```
+
+### Tips:画面の描画の仕組み
+1. クライアントからサーバーへのリクエスト
+2. サーバーからhtmlファイルを返す
+3. クライアント側は受け取ったhtmlファイルを解析して必要な他ファイルをリクエストする
+4. htmlを操作しやすくするためにDOMに変換
+5. javascriptが読み込まれる(Reactが動く)
+6. ReactはDOM APIを利用して画面の描画を行う
+
+https://zenn.dev/ak/articles/c28fa3a9ba7edb
+https://zenn.dev/ak/articles/61d25099295372
 
 ### Tips:ハードコーディング
 動的に変化べき値をコード内に直接書いてしまっている。
