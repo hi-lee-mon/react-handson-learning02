@@ -1,23 +1,23 @@
-## Reactとは<hr>
+## Reactとは
 ReactはオープンソースのUIライブラリ。
 
-## Node.jsとは<hr>
+## Node.jsとは
 Node.jsはオープンソースソフトウェアのjavascript実行環境。
 
-## npmとは<hr>
+## npmとは
 Node.jsのパッケージ管理システム。
 
-## package.json<hr>
+## package.json
 npmコマンドでインストールされたnpmパッケージの依存関係を記述したファイル。  
 srcファイルとpackage.jsonを共有することで、プロジェクトのクローンができる。
 
-## yarn<hr>
+## yarn
 後発のNode.jsのパッケージ管理システム。  
 現状、npmがアップデートされて便利になったためyarnとの違いはなくなってきている。
 
 TODO: 何が違うのか調査が必要  
 
-### メモ<hr>
+### メモ<hr/>
 ReactはオープンソースのUIライブラリ。
 最新のReactのバージョンは公式のblogで確認できる。(https://ja.reactjs.org/blog/2021/06/08/the-plan-for-react-18.html)
 
