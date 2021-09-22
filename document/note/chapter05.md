@@ -51,4 +51,13 @@ jsxは結局のところcreateElementのシンタックスシュガーなので�
 ## ***プロジェクトの作成***
 1. npm init -yでpackage.jsonを作る
 2. reactとreact-domをnpm install
-3. 
+3. コード製造
+4. webpackのインストール（ビルド環境の構築）
+5. babelのインストール
+6. babelのプリセットインストール
+JSXやES.nextをブラウザが理解出来るコードにコンパイルすることができる
+7. webpackの設定
+デフォルトの設定が効くが、カスタマイズするならプロジェクトのルートディレクトリに「webpack.config.js」を作成。
+
+## ***dependencies***
+CRAしたときに自動で作成されるreact-scriptsにはBabel・ESLint・webpackなどのあらかじめ設定済みのツールが含まれている。
