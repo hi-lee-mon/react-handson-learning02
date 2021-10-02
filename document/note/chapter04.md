@@ -22,9 +22,11 @@ JavaScriptでDOM APIを利用することで画面の更新（DOMの書き換え
 ## ***React（ライブラリ）***
 ReactライブラリはDOM APIの呼び出しを一手に引き受けてくれるため、
 開発者自身がDOM APIを利用することは意識しない。  
+Reactに対して「何をしたいのか」が記述された指示書を渡す。
+その指示書となるのがReactライブラリから作られるReact要素。
 開発者はReactに対してReact要素を渡す（returnする）だけ。  
-React要素は指示書のようなもので、ReactはReact要素を受け取り画面の描画を行う。したがってReact要素とDOM要素はそっくりであるが実際は別物。
-<hr/>
+React要素は指示書のようなもので、ReactDomはReact要素を受け取り画面の描画を行う。したがってReact要素とDOM要素はそっくりであるが実際は別物。
+
 ### ***一旦整理***
 HTMLはブラウザによってDOMに変換されたあと、画面に描画される。そのDOM要素を操作するためにブラウザからDOM APIが提供されている。
 SPAではJavaScriptがDOM APIを利用することで、DOMの要素を書き換え画面の一部分を更新している。
@@ -116,3 +118,10 @@ https://zenn.dev/ak/articles/61d25099295372
 // ハードコードでない
 <button>{text}</button>
 ```
+
+### ***おまけ:import React from "react"ってなに？***
+```
+https://zenn.dev/ria/articles/82d3b2285684aef97f0b
+```
+React17から書かなくてよくなったやつ。
+React要素の生成はJSXでするため、実際にimportしたReactを利用することはないが、JSXをJSにコンパイルしたあとにReactを利用するため、importする必要がある。
