@@ -52,9 +52,23 @@ React.createElement("h1", { id: "test" }, "child");
 HTMLタグ
 * 第2引数
 HTML属性  // React要素が持つpropsオブジェクトに格納される
-* 第3引数
-children(props)  // React要素が持つpropsオブジェクトに格納される
-
+* 第3引数以降のすべての引数
+children // React要素が持つpropsオブジェクトに格納される
+```
+// console.logで確認したReact要素
+// React.createElement("h1", { id: 0 }, "children");
+{
+  type: "h1",
+  key: null,
+  ref: null,
+  props: {
+    id: 0
+    children: "children"
+    },
+  _owner: null,
+  _store: Object,
+}
+```
 
 ## ***React要素の描画***
 React要素の作成ができたらReactDom.render関数にReact要素を渡す。
@@ -80,10 +94,19 @@ const test = () => React.createElement('h1',null,'この文字がh1の子要素�
 ```
 
 ## ***コンポーネントの呼び出し***
+以下のようにコンポーネントの呼び出しを行う。
 ```ts
+const test = () => React.createElement('h1',null,'この文字がh1の子要素として描画されるよ。');
 // 第1引数にはコンポーネントを渡す
 React.createElement(test,null,null);
+// 実際はこんな感じ
+React.createElement(
+  React.createElement('h1',null,'この文字がh1の子要素として描画されるよ。'),
+  null,
+  null,
+);
 ```
+React.createElementの第1引数にはReact要素を返す関数を渡すこともできる。
 
 ## ***コンポーネント引数props***
 コンポーネントは引数を受け取ることが出来る。
